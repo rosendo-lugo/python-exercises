@@ -7,9 +7,9 @@ def is_two(string):
     
     
 
-def is_two(string):
-    if string == 2 or string == '2':
-        return True
+def is_vowel(char):
+    if type(char) == str: 
+        return char.lower() in list('aeiou')
     else:
         return False
 
