@@ -1,60 +1,108 @@
-def is_two(a):
-    a = input('Enter the number or letter 2: ')
-    if a.isdigit() == True:
-        a = int(a)
-    if a == 2 or a == 'two':
+def is_two(string):
+    if string == 2 or string == '2':
         return True
     else:
         return False
-im_lost = is_two(a)
-print(im_lost)
 
+    
+    
 
-
-
-def is_vowel():
-    user_input = input('Enter a vowel:  ')
-
-    if user_input.lower() in 'aeiou':
-        return True
-    elif user_input.upper() in 'AEIOU':
+def is_two(string):
+    if string == 2 or string == '2':
         return True
     else:
         return False
+
+
+
+
+def is_consonant(string):
+    if type(string) == str:
+        if string.isalpha() == True:
+            if not is_vowel(string):
+                return True
+            else:
+                return False
+        else:
+            return False
+    else:
+        return False
+    
+
+
+
+def capital_cons_start(string):
+    if is_consonant(string[0]):
+        string = string.capitalize()
+    return string
+
+
+def calculate_tip(total_bill, tip = .1):
+    return total_bill * tip + total_bill
+
+
+
+def apply_discount(orig_price, disc_price):
+    return orig_price - orig_price * disc_price
+
+
+
+def handle_commas(string_num):
+    return int(string_num.replace(',',''))
+
+
+
+def get_letter_grade(grade):
+    if grade >= 90:
+        letter_grade = 'A'
+    elif grade >= 80:
+        letter_grade = 'B'
+    elif grade >= 70:
+        letter_grade = 'C'
+    else:
+        letter_grade = 'F' 
         
-im_lost = is_vowel()
-print(im_lost)
+    return letter_grade
 
 
 
 
-def is_vowel():
-    user_input = input('Enter a vowel:  ')
+def remove_vowels(string):
+    new_string = ''
 
-    if user_input.lower() not in 'aeiou':
-        return True
-    elif user_input.upper() not in 'AEIOU':
-        return True
-    else:
-        return False
-        
-im_lost = is_vowel()
-print(im_lost)
+    for char in string:
+        if not is_vowel(char):
+            new_string += char
+            
+    return new_string
 
 
 
 
-# while True:
-user_input = input('Enter a your first name:  ')
 
-first_letter_lower_case = user_input[0].lower() + user_input[1:]
 
-print('Hi:' + str(first_letter_lower_case))
+
+def normalize_name(string):
+    string = string.strip().lower().replace(' ','_')
     
-#     if user_input.isdigit() == True:
-#         print('Invalid entry, this is a number. Try again!')
-#     elif user_input == .lower()
-#         print('lower case')
+    new_string = ''
+    
+    for char in string:
+        if char.isalpha() or char.isdigit() or char == '_':
+            new_string += char
+    new_string = new_string.strip('_')
+    
+    return new_string
 
-    
-    
+
+
+
+def cumulative_sum(ls):
+    total = 0 
+    some_sums = []
+
+    for numb in ls:
+        total += numb
+        some_sums.append(total)
+
+    return some_sums
